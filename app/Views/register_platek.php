@@ -176,31 +176,56 @@
                     <div class="carousel-item">
                         <!-- Card Data Diri -->
                         <div class="card mx-auto my-3" style="max-width: 100%;">
-                            <div class="card-body text-center m-3">
-                                <h3>Spesifikasi</h3>
-                                <p>Silakan lakukan pembayaran sebesar</p>
-                                <h4>Rp. 15.000</h4>
-                                <p class="mt-3">Metode Pembayaran:</p>
-                                <div class="mb-4 align-items-center">
-                                    <img src="<?= base_url('assets/images/bri.webp') ?>" alt="logo_bri" style="height: 30px; margin-right: 10px;">
-                                    <strong> 0181-01-019449-53-6 </strong>(Alya Nurul Hanifah)
-                                    <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('018101019449536')"><i class="far fa-copy"></i></button>
+                            <div class="card-body m-3">
+                                <h3>Spesifikasi Produk</h3>
+                               <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <Label class="fw-bold">Jaket</Label>
+                                        <ul>
+                                            <li>Bahan Luar : Kain Parasut Mayer</li>
+                                            <li>Bahan Dalam : Kain Furing Jala Import</li>
+                                            <li>Kancing Lengan : Knop Snop Button</li>
+                                            <li>Jenis Sablon : DTF</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <Label class="fw-bold">Lanyard</Label>
+                                        <ul>
+                                            <li>Bahan : Polyester Tissue</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <Label class="fw-bold">Nametag</Label>
+                                        <ul>
+                                            <li>Bahan : Akrilik</li>
+                                            <li>Ukuran : 8 x 2 cm</li>
+                                            <li>Tebal : 1,5 mm</li>
+                                        </ul>
+                                    </div>
+                                    <p class="mt-3">Metode Pembayaran:</p>
+                                    <div class="mb-4 align-items-center">
+                                        <img src="<?= base_url('assets/images/bri.webp') ?>" alt="logo_bri" style="height: 30px; margin-right: 10px;">
+                                        <strong> 0181-01-019449-53-6 </strong>(Alya Nurul Hanifah)
+                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('018101019449536')"><i class="far fa-copy"></i></button>
+                                    </div>
+                                    <div class="mb-4 align-items-center">
+                                        <img src="<?= base_url('assets/images/Shopee.svg.png') ?>" alt="logo_sp" style="height: 30px; margin-right: 10px;">
+                                        <strong> 085723639723 </strong>(alyanurulll)
+                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
+                                    </div>
+                                    <div class="mb-4 align-items-center">
+                                        <img src="<?= base_url('assets/images/dana.png') ?>" alt="logo_dana" style="height: 30px; margin-right: 10px;">
+                                        <strong> 085723639723 </strong>(Dian Latifah)
+                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
+                                    </div>
+                                    <div class="mb-4 align-items-center">
+                                        <img src="<?= base_url('assets/images/gopay.png') ?>" alt="logo_gopay" style="height: 30px; margin-right: 10px;">
+                                        <strong> 085723639723 </strong>(Alya Nurul Hanifah)
+                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
+                                    </div>
                                 </div>
-                                <div class="mb-4 align-items-center">
-                                    <img src="<?= base_url('assets/images/Shopee.svg.png') ?>" alt="logo_sp" style="height: 30px; margin-right: 10px;">
-                                    <strong> 085723639723 </strong>(alyanurulll)
-                                    <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
-                                </div>
-                                <div class="mb-4 align-items-center">
-                                    <img src="<?= base_url('assets/images/dana.png') ?>" alt="logo_dana" style="height: 30px; margin-right: 10px;">
-                                    <strong> 085723639723 </strong>(Dian Latifah)
-                                    <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
-                                </div>
-                                <div class="mb-4 align-items-center">
-                                    <img src="<?= base_url('assets/images/gopay.png') ?>" alt="logo_gopay" style="height: 30px; margin-right: 10px;">
-                                    <strong> 085723639723 </strong>(Alya Nurul Hanifah)
-                                    <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
-                                </div>
+                               </div>
                             </div>
                         </div>
 
