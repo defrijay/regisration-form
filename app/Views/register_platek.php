@@ -116,13 +116,13 @@
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label fw-bold">Status Mahasiswa</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                    <input class="form-check-input" type="radio"  id="mahasiswa" name="status" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                     <label class="form-check-label fs-5" for="kelas">
                                                         Mahasiswa Aktif
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                    <input class="form-check-input" type="radio"  id="alumni" name="status" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                     <label class="form-check-label fs-5" for="kelas">
                                                         Alumni
                                                     </label>
@@ -133,25 +133,25 @@
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label fw-bold">Kelas</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                    <input class="form-check-input" type="radio" id="pilkomA" name="kelas" value="pilkomA" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                     <label class="form-check-label fs-5" for="kelas">
                                                         PILKOM A
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                    <input class="form-check-input" type="radio" id="pilkomB" name="kelas" value="pilkomB" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                     <label class="form-check-label fs-5" for="kelas">
                                                         PILKOM B
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                    <input class="form-check-input" type="radio" id="ilkomC1" name="kelas" value="ilkomC1" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                     <label class="form-check-label fs-5" for="kelas">
                                                         ILKOM C1
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                    <input class="form-check-input" type="radio" id="ilkomC2" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                     <label class="form-check-label fs-5" for="kelas">
                                                         ILKOM C2
                                                     </label>
@@ -175,7 +175,7 @@
                     <!-- Slide Pemesanan Produk -->
                     <div class="carousel-item">
                         <!-- Card Data Diri -->
-                        <div class="card mx-auto my-3" style="max-width: 100%;">
+                        <div class="card mx-auto" style="max-width: 100%;">
                             <div class="card-body m-3">
                                 <h3>Spesifikasi Produk</h3>
                                <div class="container">
@@ -203,29 +203,170 @@
                                             <li>Tebal : 1,5 mm</li>
                                         </ul>
                                     </div>
-                                    <p class="mt-3">Metode Pembayaran:</p>
-                                    <div class="mb-4 align-items-center">
-                                        <img src="<?= base_url('assets/images/bri.webp') ?>" alt="logo_bri" style="height: 30px; margin-right: 10px;">
-                                        <strong> 0181-01-019449-53-6 </strong>(Alya Nurul Hanifah)
-                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('018101019449536')"><i class="far fa-copy"></i></button>
-                                    </div>
-                                    <div class="mb-4 align-items-center">
-                                        <img src="<?= base_url('assets/images/Shopee.svg.png') ?>" alt="logo_sp" style="height: 30px; margin-right: 10px;">
-                                        <strong> 085723639723 </strong>(alyanurulll)
-                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
-                                    </div>
-                                    <div class="mb-4 align-items-center">
-                                        <img src="<?= base_url('assets/images/dana.png') ?>" alt="logo_dana" style="height: 30px; margin-right: 10px;">
-                                        <strong> 085723639723 </strong>(Dian Latifah)
-                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
-                                    </div>
-                                    <div class="mb-4 align-items-center">
-                                        <img src="<?= base_url('assets/images/gopay.png') ?>" alt="logo_gopay" style="height: 30px; margin-right: 10px;">
-                                        <strong> 085723639723 </strong>(Alya Nurul Hanifah)
-                                        <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('085723639723')"><i class="far fa-copy"></i></button>
-                                    </div>
                                 </div>
                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Satuan -->
+                        <div class="card mx-auto my-3" style="max-width: 100%;">
+                            <div class="card-body m-3">
+                                <h3>Produk Satuan</h3>
+                                <h1>ceritanya gambar!</h1>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label fs-5" for="flexCheckDefault">
+                                                Jaket : Rp170.000
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label fs-5" for="flexCheckDefault">
+                                                Lanyard : Rp20.000
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label fs-5" for="flexCheckDefault">
+                                                Name tag : Rp15.000
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label fs-5" for="flexCheckDefault">
+                                                Mau beli bundle
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Bundle -->
+                        <div class="card mx-auto my-3" style="max-width: 100%;">
+                            <div class="card-body m-3">
+                                <h3>Paket Bundle</h3>
+                                <h1>ceritanya gambar!</h1>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4 form-check">
+                                            <input class="form-check-input" type="radio" name="bundle" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                Ternary Bundle (Jaket + Lanyard + Nametag)
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4 form-check">
+                                            <input class="form-check-input" type="radio" name="bundle" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                Binary Bundle (Jaket + Lanyard)
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4 form-check">
+                                            <input class="form-check-input" type="radio" name="bundle" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                Mau beli satuan
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Size Chart Jaket -->
+                        <div class="card mx-auto my-3" style="max-width: 100%;">
+                            <div class="card-body m-3">
+                                <h3>Size Chart Jaket</h3>
+                                <h1>ceritanya gambar!</h1>
+                                <div class="container">
+                                    <div class="row g-2">
+                                        <div class="col-md-3 form-check">
+                                            <input class="form-check-input" type="radio" name="jaket" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                S
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check">
+                                            <input class="form-check-input" type="radio" name="jaket" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                M
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check">
+                                            <input class="form-check-input" type="radio" name="jaket" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                L
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check">
+                                            <input class="form-check-input" type="radio" name="jaket" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                XL
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check">
+                                            <input class="form-check-input" type="radio" name="jaket" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                2XL
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check">
+                                            <input class="form-check-input" type="radio" name="jaket" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                3XL
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check">
+                                            <input class="form-check-input" type="radio" name="jaket" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                -
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Desain Lanyard -->
+                        <div class="card mx-auto my-3" style="max-width: 100%;">
+                            <div class="card-body m-3">
+                                <h3>Desain Lanyard</h3>
+                                <h1>ceritanya gambar!</h1>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4 form-check">
+                                            <input class="form-check-input" type="radio" name="lanyard" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                First Edition
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4 form-check">
+                                            <input class="form-check-input" type="radio" name="lanyard" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                Arunikarsa Edition
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4 form-check">
+                                            <input class="form-check-input" type="radio" name="lanyard" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                            <label class="form-check-label fs-5" for="kelas">
+                                                -
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Nama dan Angkatan-->
+                        <div class="card mx-auto my-3" style="max-width: 100%;">
+                            <div class="card-body m-3">
+                                <h3>Nama dan Angkatan (untuk nametag)</h3>
+                                <p>Yang tidak memesan nametag bisa diisi "-"</p>
+                                <h1>ceritanya gambar!</h1>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="sano manjirou">
+                            </div>
+                        </div>
+                        <!-- Card Catatan-->
+                        <div class="card mx-auto my-3" style="max-width: 100%;">
+                            <div class="card-body m-3">
+                                <h3>Catatan</h3>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                             </div>
                         </div>
 
@@ -235,33 +376,33 @@
                     <!-- Slide Pembayaran Produk -->
                     <div class="carousel-item">
                         <!-- Card Metode Pembayaran -->
-                        <div class="card mx-auto my-3" style="max-width: 100%;">
+                        <div class="card mx-auto" style="max-width: 100%;">
                             <div class="card-body m-3">
                                 <h3>Metode Pembayaran</h3>
                                 <p>Silakan lakukan pembayaran dengan salah satu metode pembayaran berikut!</p>
                                 <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12 mb-4">
+                                    <div class="row g-3">
+                                        <div class="col-md-12">
                                             <img src="<?= base_url('assets/images/bri.webp') ?>" alt="logo_bri" style="height: 30px; margin-right: 10px;">
                                             <strong> 411801017635534 </strong>(Begi Sugara)
                                             <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('411801017635534')"><i class="far fa-copy"></i></button>
                                         </div>
-                                        <div class="col-md-12 mb-4">
+                                        <div class="col-md-12">
                                             <img src="<?= base_url('assets/images/Shopee.svg.png') ?>" alt="logo_sp" style="height: 30px; margin-right: 10px;">
                                             <strong> 0895630536755 </strong>(Dinda Natania)
                                             <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('0895630536755')"><i class="far fa-copy"></i></button>
                                         </div>
-                                        <div class="col-md-12 mb-4">
+                                        <div class="col-md-12">
                                             <img src="<?= base_url('assets/images/gopay.png') ?>" alt="logo_gopay" style="height: 30px; margin-right: 10px;">
                                             <strong> 0895630536755 </strong>(Dinda Natania)
                                             <button class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyToClipboard('0895630536755')"><i class="far fa-copy"></i></button>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <!-- Metode Pembayaran -->
-                                        <div class="col-md-6 mb-3">
+                                    <!-- Metode Pembayaran -->
+                                    <div class="row g-3 mt-2">
+                                        <div class="col-md-6">
                                             <div class="form-check my-1">
-                                                <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                <input class="form-check-input" type="radio" name="metode-pembayaran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     Transfer
                                                 </label>
@@ -269,15 +410,15 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check my-1">
-                                                <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                <input class="form-check-input" type="radio" name="metode-pembayaran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     COD (Hanya di UPI BUMSIL)
                                                 </label>
                                             </div>
                                         </div>  
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-6">
                                             <div class="form-check my-1">
-                                                <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                <input class="form-check-input" type="radio" name="metode-pembayaran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     Shopeepay
                                                 </label>
@@ -285,7 +426,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check my-1">
-                                                <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                                <input class="form-check-input" type="radio" name="metode-pembayaran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     Gopay
                                                 </label>
@@ -303,13 +444,13 @@
                                 <!-- Metode Pembayaran -->
                                 <div class="col-md-6 mb-3">
                                     <div class="form-check my-1">
-                                        <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                        <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="pembayaran" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                         <label class="form-check-label fs-5" for="kelas">
                                             Lunas
                                         </label>
                                     </div>
                                     <div class="form-check my-1">
-                                        <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="kelas" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
+                                        <input class="form-check-input" type="radio" name="ukuran" id="kelas" name="pembayaran" value="Kelas B" <?= old('kelas') == 'Kelas B' ? 'checked' : '' ?> required>
                                         <label class="form-check-label fs-5" for="kelas">
                                             Cicilan (Min. DP setengah harga)
                                         </label>
@@ -326,11 +467,7 @@
                                 <div class=" mb-3">
                                     <label for="bukti_pembayaran" class="form-label fw-bold">Upload File</label>
                                     <input type="file" class="form-control " id="bukti_pembayaran" name="bukti_pembayaran" required>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        Saya telah setuju dengan <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Syarat dan Ketentuan</a> yang dicantumkan
-                                    </label>
+                                    <div id="help" class="form-text text-danger">*pastikan seluruh data terisi dengan benar!</div>
                                 </div>
                                 </form>
                                 <div class="collapse mt-4" id="collapseExample">  
