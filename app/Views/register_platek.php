@@ -74,13 +74,13 @@
             <!-- Step buttons -->
             <div class="step-button-group mb-0">
                 <button type="button" class="btn active" data-bs-target="#carouselExample" data-bs-slide-to="0" disabled>
-                    <i class="fa-solid fa-1"></i> Data Diri
+                    <i class="bi bi-person-lines-fill">Data Diri</i>
                 </button>
                 <button type="button" class="btn" data-bs-target="#carouselExample" data-bs-slide-to="1" disabled>
-                    <i class="fa-solid fa-2"></i> Pemesanan Produk
+                    <i class="bi bi-cart4">Pemesanan Produk</i> 
                 </button>
                 <button type="button" class="btn" data-bs-target="#carouselExample" data-bs-slide-to="2" disabled>
-                    <i class="fa-solid fa-3"></i> Pembayaran Produk
+                    <i class="bi bi-wallet2">Pembayaran Produk</i> 
                 </button>
             </div>
 
@@ -465,7 +465,6 @@
                                 <h3>Upload Bukti Pembayaran</h3>
                                 <p>Silahkan upload bukti pembayaran</p>
                                 <div class=" mb-3">
-                                    <label for="bukti_pembayaran" class="form-label fw-bold">Upload File</label>
                                     <input type="file" class="form-control " id="bukti_pembayaran" name="bukti_pembayaran" required>
                                     <div id="help" class="form-text text-danger">*pastikan seluruh data terisi dengan benar!</div>
                                 </div>
