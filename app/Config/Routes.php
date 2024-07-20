@@ -16,3 +16,6 @@ $routes->get('/admin/delete/(:segment)', 'Admin::delete/$1', ['filter' => 'login
 $routes->get('/admin/view/(:segment)', 'Admin::view/$1', ['filter' => 'login']);
 $routes->get('/acc', 'Admin::acc', ['filter' => 'login']);
 $routes->get('/pending', 'Admin::pending', ['filter' => 'login']);
+
+//merch
+$routes->post('/save', 'Merch::save');
