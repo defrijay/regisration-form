@@ -1,0 +1,157 @@
+body {
+    background-image: url('../images/bg.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* Gaya track scrollbar */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        border-radius: 10px;
+    }
+
+    /* Gaya thumb scrollbar */
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #093128, #A4B938); 
+        border-radius: 10px; 
+    }
+
+    /* Gaya saat thumb di-hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #A4B938, #093128); 
+    }
+
+.step-button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    /* background-color: #e0e0e0; */
+    border-radius: 10px 10px 0px 0px;
+    background: #2A4D2E;
+
+}
+
+.step-button-group .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    /* background-color: #e0e0e0; */
+    color: black;
+    font-weight: bold;
+    margin: 5px;
+    flex: 1 1 auto;
+}
+
+.step-button-group .btn.active {
+    background-color: rgba(220, 220, 220, 0.5);
+    color: white !important;
+    opacity: 1;
+}
+
+.carousel-item .card {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    border-radius: 0px 0px 10px 10px !important;
+    background-color: #F2F4E6;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.btn-container .btn {
+    margin: 5px;
+}
+
+.register-btn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(45deg, #093128, #667F3B, #A4B938);
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: filter 0.3s, transform 0.3s; 
+}
+
+.register-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; 
+    transition: left 0.4s;
+    z-index: -1;
+}
+
+.register-btn:hover {
+    filter: brightness(0.85);
+    transform: scale(1.05); 
+    animation: hoverEffect 0.3s ease-in-out; 
+}
+
+.register-btn:active {
+    filter: brightness(0.5); 
+}
+
+@keyframes hoverEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+.prev-btn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid #426133;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s, filter 0.2s;
+}
+
+.prev-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #315024; 
+    transition: left 0.4s;
+    z-index: -1;
+}
+
+.prev-btn:hover::before {
+    left: 0;
+}
+
+.prev-btn:hover {
+    color: #fff; 
+}
+
+.prev-btn:active{
+    filter: brightness(0.75);
+}
+
+.form-title {
+    max-width: 375px !important;
+}

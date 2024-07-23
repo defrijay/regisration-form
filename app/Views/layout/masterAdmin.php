@@ -30,7 +30,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     
     <!-- Your custom CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/styleForm.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/style4.css') ?>">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
