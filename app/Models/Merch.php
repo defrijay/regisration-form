@@ -9,33 +9,30 @@ class Merch extends Model
     protected $table = 'merch';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
     protected $allowedFields = [
         'email', 'nomor_telepon', 'status_mahasiswa', 'kelas', 'nama_lengkap', 'nim',
         'produk_satuan', 'paket_bundle', 'size_jaket', 'desain_lanyard', 'nametag',
-        'catatan', 'metode_pembayaran', 'pembayaran', 'bukti_pembayaran',
-        'created_at', 'updated_at', 'deleted_at'
+        'catatan', 'metode_pembayaran', 'pembayaran', 'bukti_pembayaran'
     ];
-    
 
     protected $validationRules = [
         'email' => 'required|valid_email|max_length[255]',
-        'nomor_telepon' => 'required|max_length[255]',
+        'nomor_telepon' => 'required|max_length[20]',
         'status_mahasiswa' => 'required|in_list[Mahasiswa Aktif,Alumni]',
-        'kelas' => 'required|in_list[PILKOM A,PILKOM B,PILKOM C1,PILKOM C2]',
+        'kelas' => 'required|in_list[PILKOM A,PILKOM B,ILKOM C1,ILKOM C2]',
         'nama_lengkap' => 'required|max_length[255]',
         'nim' => 'required|max_length[20]',
-        'produk_satuan' => 'required',
+        'produk_satuan' => 'required|in_list[Jaket,Lanyard,Nametag,Mau Beli Bundle]',
         'paket_bundle' => 'required|in_list[Ternary Bundle (Jaket + Lanyard + Nametag),Binary Bundle (Jaket + Lanyard),Mau Beli Satuan]',
         'size_jaket' => 'required|in_list[S,M,L,XL,2XL,3XL,-]',
         'desain_lanyard' => 'required|in_list[First Edition,Arunikarsa Edition,-]',
-        'nametag' => 'required|max_length[255]',
+        'nametag' => 'required|max_length[50]',
         'catatan' => 'max_length[255]',
         'metode_pembayaran' => 'required|in_list[Transfer,COD,ShopeePay,Gopay]',
-        'pembayaran' => 'required|in_list[lunas,cicil]',
-        'bukti_pembayaran' => 'uploaded[bukti_pembayaran]|is_image[bukti_pembayaran]|max_size[bukti_pembayaran,2048]',
+        'pembayaran' => 'required|in_list[Lunas,Cicilan]',
+        'bukti_pembayaran' => 'permit_empty|is_image[bukti_pembayaran]|max_size[bukti_pembayaran,2048]',
     ];
-    
 
     protected $validationMessages = [
         'email' => [
@@ -45,7 +42,7 @@ class Merch extends Model
         ],
         'nomor_telepon' => [
             'required' => 'Nomor Telepon is required.',
-            'max_length' => 'Nomor Telepon cannot exceed 255 characters.'
+            'max_length' => 'Nomor Telepon cannot exceed 20 characters.'
         ],
         'status_mahasiswa' => [
             'required' => 'Status Mahasiswa is required.',
@@ -53,7 +50,7 @@ class Merch extends Model
         ],
         'kelas' => [
             'required' => 'Kelas is required.',
-            'in_list' => 'Kelas must be one of: PILKOM A, PILKOM B, PILKOM C1, PILKOM C2.'
+            'in_list' => 'Kelas must be one of: PILKOM A, PILKOM B, ILKOM C1, ILKOM C2.'
         ],
         'nama_lengkap' => [
             'required' => 'Nama Lengkap is required.',
@@ -68,33 +65,33 @@ class Merch extends Model
         ],
         'paket_bundle' => [
             'required' => 'Paket Bundle is required.',
-            'in_list' => 'Paket Bundle must be one of: bundle1, bundle2.'
+            'in_list' => 'Paket Bundle must be one of: Ternary Bundle (Jaket + Lanyard + Nametag), Binary Bundle (Jaket + Lanyard), Mau Beli Satuan.'
         ],
         'size_jaket' => [
             'required' => 'Size Jaket is required.',
-            'in_list' => 'Size Jaket must be one of: small, medium, large.'
+            'in_list' => 'Size Jaket must be one of: S, M, L, XL, 2XL, 3XL, -.'
         ],
         'desain_lanyard' => [
             'required' => 'Desain Lanyard is required.',
-            'in_list' => 'Desain Lanyard must be one of: desain1, desain2.'
+            'in_list' => 'Desain Lanyard must be one of: First Edition, Arunikarsa Edition, -.'
         ],
         'nametag' => [
             'required' => 'Nametag is required.',
-            'max_length' => 'Nametag cannot exceed 255 characters.'
+            'max_length' => 'Nametag cannot exceed 50 characters.'
         ],
         'catatan' => [
             'max_length' => 'Catatan cannot exceed 255 characters.'
         ],
         'metode_pembayaran' => [
             'required' => 'Metode Pembayaran is required.',
-            'in_list' => 'Metode Pembayaran must be one of: transfer, cash.'
+            'in_list' => 'Metode Pembayaran must be one of: Transfer, COD, ShopeePay, Gopay.'
         ],
         'pembayaran' => [
             'required' => 'Pembayaran is required.',
-            'in_list' => 'Pembayaran must be one of: lunas, cicil.'
+            'in_list' => 'Pembayaran must be one of: Lunas, Cicilan.'
         ],
         'bukti_pembayaran' => [
-            'uploaded' => 'Bukti Pembayaran is required.',
+            'permit_empty' => 'Bukti Pembayaran is not required.',
             'is_image' => 'Bukti Pembayaran must be an image file.',
             'max_size' => 'Bukti Pembayaran cannot exceed 2MB.'
         ],
@@ -109,5 +106,5 @@ class Merch extends Model
     {
         return $this->countAllResults();
     }
-    
 }
+

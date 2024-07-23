@@ -39,7 +39,7 @@
                     <div class="carousel-item active">
                         <div class="card mx-auto" style="max-width: 100%;">
                             <div class="card-body">
-                                <form id="registerForm" action="merch/store" method="POST" enctype="multipart/form-data" class="m-3">
+                                <form id="registerForm" action="<?= base_url('merch/store') ?>" method="POST" enctype="multipart/form-data" class="m-3">
                                     <?= csrf_field() ?>
                                     <div class="container">
                                         <div class="row">
@@ -57,13 +57,13 @@
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label fw-bold">Status Mahasiswa</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="mahasiswa" name="status_mahasiwa" value="Mahasiswa Aktif" <?= old('status_mahasiswa') == 'Mahasiswa Aktif' ? 'checked' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="mahasiswa" name="status_mahasiswa" value="Mahasiswa Aktif" <?= old('status_mahasiswa') == 'Mahasiswa Aktif' ? 'selected' : '' ?>>
                                                     <label class="form-check-label fs-5" for="mahasiswa">
                                                         Mahasiswa Aktif
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="alumni" name="status_mahasiwa" value="Alumni" <?= old('status_mahasiswa') == 'Alumni' ? 'checked' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="alumni" name="status_mahasiswa" value="Alumni" <?= old('status_mahasiswa') == 'Alumni' ? 'selected' : '' ?>>
                                                     <label class="form-check-label fs-5" for="alumni">
                                                         Alumni
                                                     </label>
@@ -73,25 +73,25 @@
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label fw-bold">Kelas</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="pilkomA" name="kelas" value="PILKOM A" <?= old('kelas') == 'PILKOM A' ? 'checked' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="pilkomA" name="kelas" value="PILKOM A" <?= old('kelas') == 'PILKOM A' ? 'selected' : '' ?>>
                                                     <label class="form-check-label fs-5" for="pilkomA">
                                                         PILKOM A
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="pilkomB" name="kelas" value="PILKOM B" <?= old('kelas') == 'PILKOM B' ? 'checked' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="pilkomB" name="kelas" value="PILKOM B" <?= old('kelas') == 'PILKOM B' ? 'selected' : '' ?>>
                                                     <label class="form-check-label fs-5" for="pilkomB">
                                                         PILKOM B
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="ilkomC1" name="kelas" value="ILKOM C1" <?= old('kelas') == 'ILKOM C1' ? 'checked' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="ilkomC1" name="kelas" value="ILKOM C1" <?= old('kelas') == 'ILKOM C1' ? 'selected' : '' ?>>
                                                     <label class="form-check-label fs-5" for="ilkomC1">
                                                         ILKOM C1
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="ilkomC2" name="kelas" value="ILKOM C2" <?= old('kelas') == 'ILKOM C2' ? 'checked' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="ilkomC2" name="kelas" value="ILKOM C2" <?= old('kelas') == 'ILKOM C2' ? 'selected' : '' ?>>
                                                     <label class="form-check-label fs-5" for="ilkomC2">
                                                         ILKOM C2
                                                     </label>
@@ -99,13 +99,13 @@
                                             </div>
                                             <!-- Nama Lengkap -->
                                             <div class="mb-3">
-                                                <label for="nama" class="form-label fw-bold">Nama Lengkap</label>
-                                                <input type="text" class="form-control" id="nama" name="nama" value="<?= old('nama_lengkap') ?>">
+                                                <label for="nama_lengkap" class="form-label fw-bold">Nama Lengkap</label>
+                                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= old('nama_lengkap') ?>">
                                             </div>
                                             <!-- NIM -->
                                             <div class="mb-3">
                                                 <label for="nim" class="form-label fw-bold">NIM</label>
-                                                <input type="text" class="form-control" id="nim" name="nim" value="<?= old('nim') ?>" required>
+                                                <input type="text" class="form-control" id="nim" name="nim" value="<?= old('nim') ?>">
                                             </div>
                                             
                                         </div>
@@ -200,19 +200,19 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="ternary_bundle" name="paket_bundle" value="Ternary Bundle (Jaket + Lanyard + Nametag)" <?= old('paket_bundle') == 'Ternary Bundle (Jaket + Lanyard + Nametag)' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="ternary_bundle" name="paket_bundle" value="Ternary Bundle (Jaket + Lanyard + Nametag)" <?= old('paket_bundle') == 'Ternary Bundle (Jaket + Lanyard + Nametag)' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="ternary_bundle">
                                                     Ternary Bundle (Jaket + Lanyard + Nametag)
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="binary_bundle" name="paket_bundle" value="Binary Bundle (Jaket + Lanyard)" <?= old('paket_bundle') == 'Binary Bundle (Jaket + Lanyard)' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="binary_bundle" name="paket_bundle" value="Binary Bundle (Jaket + Lanyard)" <?= old('paket_bundle') == 'Binary Bundle (Jaket + Lanyard)' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="binary_bundle">
                                                     Binary Bundle (Jaket + Lanyard)
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="mau_beli_satuan" name="paket_bundle" value="Mau Beli Satuan" <?= old('paket_bundle') == 'Mau Beli Satuan' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="mau_beli_satuan" name="paket_bundle" value="Mau Beli Satuan" <?= old('paket_bundle') == 'Mau Beli Satuan' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="mau_beli_satuan">
                                                     Mau beli satuan
                                                 </label>
@@ -235,43 +235,43 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="S" name="size_jaket" value="S" <?= old('size_jaket') == 'S' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="S" name="size_jaket" value="S" <?= old('size_jaket') == 'S' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="S">
                                                     S
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="M" name="size_jaket" value="M" <?= old('size_jaket') == 'M' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="M" name="size_jaket" value="M" <?= old('size_jaket') == 'M' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="M">
                                                     M
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="L" name="size_jaket" value="L" <?= old('size_jaket') == 'L' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="L" name="size_jaket" value="L" <?= old('size_jaket') == 'L' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="L">
                                                     L
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="XL" name="size_jaket" value="XL" <?= old('size_jaket') == 'XL' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="XL" name="size_jaket" value="XL" <?= old('size_jaket') == 'XL' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="XL">
                                                     XL
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="2XL" name="size_jaket" value="2XL" <?= old('size_jaket') == '2XL' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="2XL" name="size_jaket" value="2XL" <?= old('size_jaket') == '2XL' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="2XL">
                                                     2XL
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="3XL" name="size_jaket" value="3XL" <?= old('size_jaket') == '3XL' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="3XL" name="size_jaket" value="3XL" <?= old('size_jaket') == '3XL' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="3XL">
                                                     3XL
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="-" name="size_jaket" value="-" <?= old('size_jaket') == '-' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="-" name="size_jaket" value="-" <?= old('size_jaket') == '-' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="-">
                                                     -
                                                 </label>
@@ -292,19 +292,19 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="First Edition" name="desain_lanyard" value="First Edition" <?= old('desain_lanyard') == 'First Edition' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="First Edition" name="desain_lanyard" value="First Edition" <?= old('desain_lanyard') == 'First Edition' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="First Edition">
                                                     First Edition
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="Arunikarsa Edition" name="desain_lanyard" value="Arunikarsa Edition" <?= old('desain_lanyard') == 'Arunikarsa Edition' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="Arunikarsa Edition" name="desain_lanyard" value="Arunikarsa Edition" <?= old('desain_lanyard') == 'Arunikarsa Edition' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="Arunikarsa Edition">
                                                     Arunikarsa Edition
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="-" name="desain_lanyard" value="-" <?= old('desain_lanyard') == '-' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="-" name="desain_lanyard" value="-" <?= old('desain_lanyard') == '-' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="-">
                                                     -
                                                 </label>
@@ -369,7 +369,7 @@
                                     <div class="row mt-2">
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="transfer" <?= old('metode_pembayaran') == 'transfer' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="Transfer" <?= old('metode_pembayaran') == 'Transfer' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     Transfer
                                                 </label>
@@ -377,7 +377,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="COD" <?= old('metode_pembayaran') == 'COD' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="COD" <?= old('metode_pembayaran') == 'COD' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     COD (Hanya di UPI BUMSIL)
                                                 </label>
@@ -385,7 +385,7 @@
                                         </div>  
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="ShopeePay" <?= old('metode_pembayaran') == 'ShopeePay' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="ShopeePay" <?= old('metode_pembayaran') == 'ShopeePay' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     ShopeePay
                                                 </label>
@@ -393,7 +393,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="Gopay" <?= old('metode_pembayaran') == 'Gopay' ? 'checked' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="Gopay" <?= old('metode_pembayaran') == 'Gopay' ? 'selected' : '' ?>>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     Gopay
                                                 </label>
@@ -411,13 +411,13 @@
                                 <!-- Metode Pembayaran -->
                                 <div class="col-md-6 mb-3">
                                     <div class="form-check my-1">
-                                        <input class="form-check-input" type="radio" id="Lunas" name="pembayaran" value="Lunas" <?= old('pembayaran') == 'Lunas' ? 'checked' : '' ?>>
+                                        <input class="form-check-input" type="radio" id="Lunas" name="pembayaran" value="Lunas" <?= old('pembayaran') == 'Lunas' ? 'selected' : '' ?>>
                                         <label class="form-check-label fs-5" for="Lunas">
                                             Lunas
                                         </label>
                                     </div>
                                     <div class="form-check my-1">
-                                        <input class="form-check-input" type="radio" id="Cicilan" name="pembayaran" value="Cicilan" <?= old('kelas') == 'Cicilan' ? 'checked' : '' ?> required>
+                                        <input class="form-check-input" type="radio" id="Cicilan" name="pembayaran" value="Cicilan" <?= old('kelas') == 'Cicilan' ? 'selected' : '' ?> required>
                                         <label class="form-check-label fs-5" for="Cicilan">
                                             Cicilan (Min. DP setengah harga)
                                         </label>

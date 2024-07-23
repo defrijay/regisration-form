@@ -9,6 +9,6 @@ class Home extends BaseController
         $data = [
             'title' => 'Form Pendaftaran'
     ];
-        return view('order', $data);
+        return view('create', $data);
     }
 }
