@@ -65,19 +65,15 @@
            
             <div class="container mt-5">
                 <!-- Menampilkan pesan flash -->
-                <?php
-                    $flash = session()->getFlashdata('success');
-                    if ($flash) {
-                        $currentTime = time();
-                        $flashTime = $flash['timestamp'];
-                        $message = $flash['message'];
-
-                        // Menampilkan pesan jika waktu saat ini kurang dari 5 detik setelah timestamp
-                        if (($currentTime - $flashTime) <= 5) {
-                            echo '<div class="alert alert-success">' . $message . '</div>';
-                        }
-                    }
-                ?>
+                <?php if (session()->getFlashdata('errors')) : ?>
+                <div class="alert alert-danger">
+                    <ul>
+                        <?php foreach (session()->getFlashdata('errors') as $error) : ?>
+                            <li><?= $error ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
 
                 <h2 class="fw-bold mb-4 text-center text-white">KEMAKOM Merchandise</h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -167,7 +163,7 @@
                             <td><?= $merch['pembayaran']?></td>
                             <td>
                                 <?php if ($merch['bukti_pembayaran']): ?>
-                                    <a href="<?= base_url('uploads/' . $merch['bukti_pembayaran']) ?>" target="_blank"><?= esc($merch['bukti_pembayaran']) ?></a>                                    
+                                    <a class="text-decoration-underline" href="<?= base_url('uploads/' . $merch['bukti_pembayaran']) ?>" target="_blank"><?= esc($merch['bukti_pembayaran']) ?></a>                                    
                                     <?php else: ?>
                                         Tidak Ada
                                 <?php endif; ?>
@@ -211,6 +207,7 @@
                                             <p>Pembayaran : <?= $merch['pembayaran'] ?></p>
                                             <p>Bukti Pembayaran :</strong></p>
                                             <?php if ($merch['bukti_pembayaran']): ?>
+                                                <a class="text-decoration-underline" href="<?= base_url('uploads/' . $merch['bukti_pembayaran']) ?>" target="_blank"><?= esc($merch['bukti_pembayaran']) ?></a>
                                                 <img src="<?= base_url('uploads/' . $merch['bukti_pembayaran']) ?>" alt="Bukti Pembayaran" class="img-fluid" height="40">
                                                 <?php else: ?>
                                                     <p>Tidak Bukti Pembayaran!</p>
@@ -234,25 +231,25 @@
                                     <div class="modal-body">
                                         <form action="<?= base_url('merch/update/' . $merch['id']); ?>" method="POST" enctype="multipart/form-data">
                                             <!-- Nama Lengkap -->
-                                            <label for="nama_lengkap" class="form-label">Nama</label>
+                                            <label for="nama_lengkap" class="form-label fw-bold">Nama</label>
                                             <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= old('nama_lengkap', $merch['nama_lengkap']) ?>"><br>
                                             <!-- Email -->
-                                            <label for="email" class="form-label">Email</label>
+                                            <label for="email" class="form-label fw-bold">Email</label>
                                             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" value="<?= old('email', $merch['email']) ?>"><br>
                                             <!-- Nomor Telepon -->
-                                            <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
+                                            <label for="nomor_telepon" class="form-label fw-bold">Nomor Telepon</label>
                                             <input type="text" class="form-control" id="nomor_telepon" name="nomor_telepon" value="<?= old('nomor_telepon', $merch['nomor_telepon']) ?>"><br>
                                             <!-- Status Mahasiswa -->
-                                            <label for="status_mahasiswa" class="form-label">Status Mahasiswa</label>
+                                            <label for="status_mahasiswa" class="form-label fw-bold">Status Mahasiswa</label>
                                             <select class="form-select mb-3" id="status_mahasiswa" aria-label="Default select example" name="status_mahasiswa">
                                                 <option value="Mahasiswa Aktif" <?= old($merch['status_mahasiswa'] == 'Mahasiswa Aktif') ? 'selected' : '' ?>>Mahasiswa Aktif</option>
                                                 <option value="Alumni" <?= old($merch['status_mahasiswa'] == 'Alumni') ? 'selected' : '' ?>>Alumni</option>
                                             </select>
                                             <!-- NIM -->
-                                            <label for="nim" class="form-label">NIM</label>
+                                            <label for="nim" class="form-label fw-bold">NIM</label>
                                             <input type="text" class="form-control" id="nim" name="nim" value="<?= old('nim', $merch['nim']) ?>"><br>
                                             <!-- Kelas -->
-                                            <label for="kelas" class="form-label">Kelas</label>
+                                            <label for="kelas" class="form-label fw-bold">Kelas</label>
                                             <select class="form-select mb-3" id="kelas" aria-label="Default select example" name="kelas">
                                                 <option value="PILKOM A" <?= old($merch['kelas'] == 'PILKOM A') ? 'selected' : '' ?>>PILKOM A</option>
                                                 <option value="PILKOM B" <?= old($merch['kelas'] == 'PILKOM B') ? 'selected' : '' ?>>PILKOM B</option>
@@ -260,22 +257,34 @@
                                                 <option value="ILKOM C2" <?= old($merch['kelas'] == 'ILKOM C2') ? 'selected' : '' ?>>ILKOM C2</option>
                                             </select>
                                             <!-- Produk Satuan -->
-                                            <label for="produk_satuan" class="form-label">Produk Satuan</label>
-                                            <select class="form-select mb-3" id="produk_satuan" aria-label="Default select example" name="produk_satuan">
-                                                <option value="Jaket" <?= old($merch['produk_satuan'] == 'Jaket') ? 'selected' : '' ?>>Jaket</option>
-                                                <option value="Lanyard" <?= old($merch['produk_satuan'] == 'Lanyard') ? 'selected' : '' ?>>Lanyard</option>
-                                                <option value="Nametag" <?= old($merch['produk_satuan'] == 'Nametag') ? 'selected' : '' ?>>Nametag</option>
-                                                <option value="Mau Beli Bundle" <?= old($merch['produk_satuan'] == 'Mau Beli Bundle') ? 'selected' : '' ?>>Mau Beli Bundle</option>
-                                            </select>
+                                             <div class="form mb-3">
+                                                 <label for="produk_satuan" class="form-label fw-bold">Produk Satuan</label><br>
+                                                 <div class="form-check form-check-inline">
+                                                     <input type="checkbox" class="form-check-input" id="produk_satuan_jaket" name="produk_satuan[]" value="Jaket" <?= in_array('Jaket', old('produk_satuan', explode(',', $merch['produk_satuan']))) ? 'checked' : ''?>>
+                                                     <label for="produk_satuan_jaket" class="form-check-label">Jaket</label>
+                                                 </div>
+                                                 <div class="form-check form-check-inline">
+                                                     <input type="checkbox" class="form-check-input" id="produk_satuan_lanyard" name="produk_satuan[]" value="Lanyard" <?= in_array('Lanyard', old('produk_satuan', explode(',', $merch['produk_satuan']))) ? 'checked' : ''?>>
+                                                     <label for="produk_satuan_lanyard" class="form-check-label">Lanyard</label><br>
+                                                 </div>
+                                                 <div class="form-check form-check-inline">
+                                                     <input type="checkbox" class="form-check-input" id="produk_satuan_nametag" name="produk_satuan[]" value="Nametag" <?= in_array('Nametag', old('produk_satuan', explode(',', $merch['produk_satuan']))) ? 'checked' : ''?>>
+                                                     <label for="produk_satuan_nametag" class="form-check-label">Nametag</label>
+                                                 </div>
+                                                 <div class="form-check form-check-inline">
+                                                     <input type="checkbox" class="form-check-input" id="produk_satuan_mau_beli_bundle" name="produk_satuan[]" value="Mau Beli Bundle" <?= in_array('Mau Beli Bundle', old('produk_satuan', explode(',', $merch['produk_satuan']))) ? 'checked' : ''?>>
+                                                     <label for="produk_satuan_mau_beli_bundle" class="form-check-label">Mau Beli Bundle</label>
+                                                 </div>
+                                             </div>
                                             <!-- Paket Bundle -->
-                                            <label for="paket_bundle" class="form-label">Paket Bundle</label>
+                                            <label for="paket_bundle" class="form-label fw-bold">Paket Bundle</label>
                                             <select class="form-select mb-3" id="paket_bundle" aria-label="Default select example"name="paket_bundle">
                                                 <option value="Ternary Bundle (Jaket + Lanyard + Nametag)" <?= old($merch['paket_bundle'] == 'Ternary Bundle (Jaket + Lanyard + Nametag)') ? 'selected' : '' ?>>Ternary Bundle (Jaket + Lanyard + Nametag)</option>
                                                 <option value="Binary Bundle (Jaket + Lanyard)" <?= old($merch['paket_bundle'] == 'Binary Bundle (Jaket + Lanyard)') ? 'selected' : '' ?>>Binary Bundle (Jaket + Lanyard)</option>
                                                 <option value="Mau Beli Satuan" <?= old($merch['paket_bundle'] == 'Mau Beli Satuan') ? 'selected' : '' ?>>Mau Beli Satuan</option>
                                             </select>
                                             <!-- Ukuran Jaket -->
-                                            <label for="size_jaket" class="form-label">Ukuran Jaket</label>
+                                            <label for="size_jaket" class="form-label fw-bold">Ukuran Jaket</label>
                                             <select class="form-select mb-3" id="size_jaket" aria-label="Default select example" name="size_jaket">
                                                 <option value="S" <?= old($merch['size_jaket'] == 'S') ? 'selected' : '' ?>>S</option>
                                                 <option value="M" <?= old($merch['size_jaket'] == 'M') ? 'selected' : '' ?>>M</option>
@@ -286,19 +295,19 @@
                                                 <option value="-" <?= old($merch['size_jaket'] == '-') ? 'selected' : '' ?>>-</option>
                                             </select>
                                             <!-- Desain Lanyard -->
-                                            <label for="desain_lanyard" class="form-label">Desain Lanyard</label>
+                                            <label for="desain_lanyard" class="form-label fw-bold">Desain Lanyard</label>
                                             <select class="form-select mb-3" id="desain_lanyard" aria-label="Default select example" name="desain_lanyard">
                                                 <option value="First Edition" <?= old($merch['desain_lanyard'] == 'First Edition') ? 'selected' : '' ?>>First Edition</option>
                                                 <option value="Arunikarsa Edition" <?= old($merch['desain_lanyard'] == 'Arunikarsa Edition') ? 'selected' : '' ?>>Arunikarsa Edition</option>
                                             </select>
                                             <!-- Nametag -->
-                                            <label for="nametag" class="form-label">Nametag</label>
+                                            <label for="nametag" class="form-label fw-bold">Nametag</label>
                                             <input type="text" class="form-control" id="nametag" name="nametag" value="<?= old('nametag', $merch['nametag']) ?>"><br>
                                             <!-- Catatan -->
-                                            <label for="catatan" class="form-label">Catatan</label>
+                                            <label for="catatan" class="form-label fw-bold">Catatan</label>
                                             <textarea class="form-control mb-3" id="catatan" name="catatan" rows="2"><?= old('catatan', $merch['catatan'] ?? '') ?></textarea>
                                             <!-- Metode Pembayaran -->
-                                            <label for="metode_pembayaran" class="form-label" name="metode_pembayaran">Metode Pembayaran</label>
+                                            <label for="metode_pembayaran" class="form-label fw-bold" name="metode_pembayaran">Metode Pembayaran</label>
                                             <select class="form-select mb-3" id="metode_pembayaran" aria-label="Default select example">
                                                 <option value="Transfer" <?= old($merch['metode_pembayaran'] == 'Transfer') ? 'selected' : '' ?>>Transfer</option>
                                                 <option value="COD" <?= old($merch['metode_pembayaran'] == 'COD') ? 'selected' : '' ?>>COD</option>
@@ -306,12 +315,24 @@
                                                 <option value="Gopay" <?= old($merch['metode_pembayaran'] == 'Gopay') ? 'selected' : '' ?>>Gopay</option>
                                             </select>
                                             <!-- Pembayaran -->
-                                            <label for="pembayaran" class="form-label">Pembayaran</label>
+                                            <label for="pembayaran" class="form-label fw-bold">Pembayaran</label>
                                             <select class="form-select mb-3" id="pembayaran" aria-label="Default select example" name="pembayaran">
                                                 <option value="Lunas" <?= old($merch['pembayaran'] == 'Lunas') ? 'selected' : '' ?>>Lunas</option>
                                                 <option value="Cicilan" <?= old($merch['pembayaran'] == 'Cicilan') ? 'selected' : '' ?>>Cicilan</option>
                                             </select>
                                             <!-- Bukti Pembayaran -->
+                                            <label for="bukti_pembayaran" class="form-label fw-bold">Bukti Pembayaran</label><br>
+                                            <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran">
+                                            <?php if (!empty($merch['bukti_pembayaran'])): ?>
+                                                <div class="my-2">
+                                                    <small class="text-muted mb-2">*Upload file baru jika ingin mengganti bukti pembayaran.</small><br>
+                                                    <a class="text-decoration-underline" href="<?= base_url('uploads/' . $merch['bukti_pembayaran']) ?>" target="_blank"><?= esc($merch['bukti_pembayaran']) ?></a>
+                                                </div>
+                                                <img src="<?= base_url('uploads/' . $merch['bukti_pembayaran']) ?>" alt="Bukti Pembayaran" class="img-fluid" height="40"><br>
+                                                <?php else: ?>
+                                                    <small class="text-muted">*Upload file baru jika ingin menambah bukti pembayaran.</small><br>
+                                                    <p class="text-danger mt-2">Tidak Ada Bukti Pembayaran</p>
+                                            <?php endif; ?>
                                             
                                         </div>
                                             <div class="modal-footer">
@@ -353,7 +374,11 @@
                     <?php endif; ?>
                 </tbody>
                 </table>
-                <?= $pager->makeLinks($currentPage, $limit, $totalRows) ?>
+
+                <div class="container mt-3">
+                    <?= $pager->makeLinks($currentPage, $limit, $totalRows) ?>
+                    <?= $pager->links('merchs', 'bootstrap_pagination'); ?>
+                </div>
             </div>
             </div>
         </div>
@@ -374,8 +399,18 @@
                         </div>
                         <ul class="list-unstyled m-3">
                             <li>
-                                <a href="" class="btn btn-success">Kemakom Merch</a>
-                                <a href="" class="btn btn-success">Kemakom Merch</a>
+                                <a href="https://api.whatsapp.com/send?phone=6285174274698" target="_blank" class="btn btn-success my-1">
+                                    <i class="bi bi-whatsapp fw-bold fs-5">What's App</i><br>
+                                    <small>KEMAKOM Merchandise</small>
+                                </a>
+                                <a href="https://www.instagram.com/kemakom.merch/?hl=en" target="_blank" class="btn btn-success my-1">
+                                    <i class="bi bi-instagram fw-bold fs-5">Instagram</i><br>
+                                    <small>KEMAKOM Merhcandise</small>
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=6289636810104&text=Hello%20kang%20def%20mau%20nanya%20dong%😱🤔" target="_blank" class="btn btn-success my-1">
+                                    <i class="bi bi-file-person fw-bold fs-5">Biro Teknologi</i><br>
+                                    <small>Defrizal Yahdiyan Risyad</small>
+                                </a>
                             </li>
                         </ul>
                     </div>

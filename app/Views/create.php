@@ -7,6 +7,12 @@
 <body>
     <h1>Create Merch</h1>
     
+    <?php if(session()->getFlashdata('success')): ?>
+        <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+    <?php elseif(session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+    <?php endif; ?>
+    
     <?= \Config\Services::validation()->listErrors() ?>
     
     <form action="<?= base_url('merch/store') ?>" method="post" enctype="multipart/form-data">
