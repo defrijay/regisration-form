@@ -1,4 +1,4 @@
-<?= $this->extend('layout/master') ?>
+<?= $this->extend('layout/masterFormMerchandise') ?>
 
 <?= $this->section('content') ?>
 
@@ -39,14 +39,14 @@
                     <div class="carousel-item active">
                         <div class="card mx-auto" style="max-width: 100%;">
                             <div class="card-body">
-                                <form id="registerForm" action="<?= base_url('merch/store') ?>" method="POST" enctype="multipart/form-data" class="m-3">
+                                <form id="registerForm" action="<?= base_url('merch/store') ?>" method="post" enctype="multipart/form-data" class="m-3">
                                     <?= csrf_field() ?>
                                     <div class="container">
                                         <div class="row">
                                             <!-- Email -->
                                             <div class="col-md-12 mb-3">
                                                 <label for="email" class="form-label fw-bold">Email</label>
-                                                <input type="email" class="form-control" id="email" name="email" value="<?= old('email') ?>">
+                                                <input type="email" class="form-control" id="email" name="email" value="<?= old('email') ?>" >
                                             </div>
                                             <!-- Nomor Telepon -->
                                             <div class="col-md-12 mb-3">
@@ -57,13 +57,13 @@
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label fw-bold">Status Mahasiswa</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="mahasiswa" name="status_mahasiswa" value="Mahasiswa Aktif" <?= old('status_mahasiswa') == 'Mahasiswa Aktif' ? 'selected' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="mahasiswa" name="status_mahasiswa" value="Mahasiswa Aktif" <?= old('status_mahasiswa') == 'Mahasiswa Aktif' ? 'checked' : '' ?>>
                                                     <label class="form-check-label fs-5" for="mahasiswa">
                                                         Mahasiswa Aktif
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="alumni" name="status_mahasiswa" value="Alumni" <?= old('status_mahasiswa') == 'Alumni' ? 'selected' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="alumni" name="status_mahasiswa" value="Alumni" <?= old('status_mahasiswa') == 'Alumni' ? 'checked' : '' ?>>
                                                     <label class="form-check-label fs-5" for="alumni">
                                                         Alumni
                                                     </label>
@@ -73,25 +73,25 @@
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label fw-bold">Kelas</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="pilkomA" name="kelas" value="PILKOM A" <?= old('kelas') == 'PILKOM A' ? 'selected' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="pilkomA" name="kelas" value="PILKOM A" <?= old('kelas') == 'PILKOM A' ? 'checked' : '' ?>>
                                                     <label class="form-check-label fs-5" for="pilkomA">
                                                         PILKOM A
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="pilkomB" name="kelas" value="PILKOM B" <?= old('kelas') == 'PILKOM B' ? 'selected' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="pilkomB" name="kelas" value="PILKOM B" <?= old('kelas') == 'PILKOM B' ? 'checked' : '' ?>>
                                                     <label class="form-check-label fs-5" for="pilkomB">
                                                         PILKOM B
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="ilkomC1" name="kelas" value="ILKOM C1" <?= old('kelas') == 'ILKOM C1' ? 'selected' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="ilkomC1" name="kelas" value="ILKOM C1" <?= old('kelas') == 'ILKOM C1' ? 'checked' : '' ?>>
                                                     <label class="form-check-label fs-5" for="ilkomC1">
                                                         ILKOM C1
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" id="ilkomC2" name="kelas" value="ILKOM C2" <?= old('kelas') == 'ILKOM C2' ? 'selected' : '' ?>>
+                                                    <input class="form-check-input" type="radio" id="ilkomC2" name="kelas" value="ILKOM C2" <?= old('kelas') == 'ILKOM C2' ? 'checked' : '' ?>>
                                                     <label class="form-check-label fs-5" for="ilkomC2">
                                                         ILKOM C2
                                                     </label>
@@ -200,19 +200,19 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="ternary_bundle" name="paket_bundle" value="Ternary Bundle (Jaket + Lanyard + Nametag)" <?= old('paket_bundle') == 'Ternary Bundle (Jaket + Lanyard + Nametag)' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="ternary_bundle" name="paket_bundle" value="Ternary Bundle (Jaket + Lanyard + Nametag)" <?= old('paket_bundle') == 'Ternary Bundle (Jaket + Lanyard + Nametag)' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="ternary_bundle">
                                                     Ternary Bundle (Jaket + Lanyard + Nametag)
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="binary_bundle" name="paket_bundle" value="Binary Bundle (Jaket + Lanyard)" <?= old('paket_bundle') == 'Binary Bundle (Jaket + Lanyard)' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="binary_bundle" name="paket_bundle" value="Binary Bundle (Jaket + Lanyard)" <?= old('paket_bundle') == 'Binary Bundle (Jaket + Lanyard)' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="binary_bundle">
                                                     Binary Bundle (Jaket + Lanyard)
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="mau_beli_satuan" name="paket_bundle" value="Mau Beli Satuan" <?= old('paket_bundle') == 'Mau Beli Satuan' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="mau_beli_satuan" name="paket_bundle" value="Mau Beli Satuan" <?= old('paket_bundle') == 'Mau Beli Satuan' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="mau_beli_satuan">
                                                     Mau beli satuan
                                                 </label>
@@ -235,43 +235,43 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="S" name="size_jaket" value="S" <?= old('size_jaket') == 'S' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="S" name="size_jaket" value="S" <?= old('size_jaket') == 'S' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="S">
                                                     S
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="M" name="size_jaket" value="M" <?= old('size_jaket') == 'M' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="M" name="size_jaket" value="M" <?= old('size_jaket') == 'M' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="M">
                                                     M
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="L" name="size_jaket" value="L" <?= old('size_jaket') == 'L' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="L" name="size_jaket" value="L" <?= old('size_jaket') == 'L' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="L">
                                                     L
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="XL" name="size_jaket" value="XL" <?= old('size_jaket') == 'XL' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="XL" name="size_jaket" value="XL" <?= old('size_jaket') == 'XL' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="XL">
                                                     XL
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="2XL" name="size_jaket" value="2XL" <?= old('size_jaket') == '2XL' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="2XL" name="size_jaket" value="2XL" <?= old('size_jaket') == '2XL' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="2XL">
                                                     2XL
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="3XL" name="size_jaket" value="3XL" <?= old('size_jaket') == '3XL' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="3XL" name="size_jaket" value="3XL" <?= old('size_jaket') == '3XL' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="3XL">
                                                     3XL
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="-" name="size_jaket" value="-" <?= old('size_jaket') == '-' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="-" name="size_jaket" value="-" <?= old('size_jaket') == '-' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="-">
                                                     -
                                                 </label>
@@ -292,19 +292,19 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="First Edition" name="desain_lanyard" value="First Edition" <?= old('desain_lanyard') == 'First Edition' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="First Edition" name="desain_lanyard" value="First Edition" <?= old('desain_lanyard') == 'First Edition' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="First Edition">
                                                     First Edition
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="Arunikarsa Edition" name="desain_lanyard" value="Arunikarsa Edition" <?= old('desain_lanyard') == 'Arunikarsa Edition' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="Arunikarsa Edition" name="desain_lanyard" value="Arunikarsa Edition" <?= old('desain_lanyard') == 'Arunikarsa Edition' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="Arunikarsa Edition">
                                                     Arunikarsa Edition
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="-" name="desain_lanyard" value="-" <?= old('desain_lanyard') == '-' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="-" name="desain_lanyard" value="-" <?= old('desain_lanyard') == '-' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="-">
                                                     -
                                                 </label>
@@ -331,11 +331,13 @@
                                     </div>
                             </div>
                         </div>
+                        
                         <!-- Card Catatan-->
                         <div class="card mx-auto my-3" style="max-width: 100%;">
                             <div class="card-body m-3">
                                 <h3 class="fw-bold">Catatan</h3>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"><?= old('catatan', $merch['catatan'] ?? '') ?></textarea>
+                                <p>Isi "-" jika tidak ada catatan</p>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="catatan" value="<?= old('catatan') ?>"></textarea>
                             </div>
                         </div>
                     </div>
@@ -369,7 +371,7 @@
                                     <div class="row mt-2">
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="Transfer" <?= old('metode_pembayaran') == 'Transfer' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="Transfer" <?= old('metode_pembayaran') == 'Transfer' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     Transfer
                                                 </label>
@@ -377,7 +379,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="COD" <?= old('metode_pembayaran') == 'COD' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="COD" <?= old('metode_pembayaran') == 'COD' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     COD (Hanya di UPI BUMSIL)
                                                 </label>
@@ -385,7 +387,7 @@
                                         </div>  
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="ShopeePay" <?= old('metode_pembayaran') == 'ShopeePay' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="ShopeePay" <?= old('metode_pembayaran') == 'ShopeePay' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     ShopeePay
                                                 </label>
@@ -393,7 +395,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="Gopay" <?= old('metode_pembayaran') == 'Gopay' ? 'selected' : '' ?>>
+                                                <input class="form-check-input" type="radio" id="kelas" name="metode_pembayaran" value="Gopay" <?= old('metode_pembayaran') == 'Gopay' ? 'checked' : '' ?>>
                                                 <label class="form-check-label fs-5" for="kelas">
                                                     Gopay
                                                 </label>
@@ -411,13 +413,13 @@
                                 <!-- Metode Pembayaran -->
                                 <div class="col-md-6 mb-3">
                                     <div class="form-check my-1">
-                                        <input class="form-check-input" type="radio" id="Lunas" name="pembayaran" value="Lunas" <?= old('pembayaran') == 'Lunas' ? 'selected' : '' ?>>
+                                        <input class="form-check-input" type="radio" id="Lunas" name="pembayaran" value="Lunas" <?= old('pembayaran') == 'Lunas' ? 'checked' : '' ?>>
                                         <label class="form-check-label fs-5" for="Lunas">
                                             Lunas
                                         </label>
                                     </div>
                                     <div class="form-check my-1">
-                                        <input class="form-check-input" type="radio" id="Cicilan" name="pembayaran" value="Cicilan" <?= old('kelas') == 'Cicilan' ? 'selected' : '' ?> required>
+                                        <input class="form-check-input" type="radio" id="Cicilan" name="pembayaran" value="Cicilan" <?= old('kelas') == 'Cicilan' ? 'checked' : '' ?>>
                                         <label class="form-check-label fs-5" for="Cicilan">
                                             Cicilan (Min. DP setengah harga)
                                         </label>
@@ -429,11 +431,10 @@
                         <!-- Card Upload Pembayaran -->
                         <div class="card mx-auto my-3" style="max-width: 100%;">
                             <div class="card-body m-3">
-                                <h3 class="fw-bold">Upload Bukti Pembayaran</h3>
+                                <h3><label class="fw-bold">Upload Bukti Pembayaran</label></h3>
                                 <p>Silahkan upload bukti pembayaran</p>
-                                <input type="file" class="form-control " id="bukti_pembayaran" name="bukti_pembayaran" required>
+                                <input type="file" name="bukti_pembayaran" class="form-control"><br>
                                 <div id="help" class="form-text text-danger my-2=3">*pastikan seluruh data terisi dengan benar!</div>
-                            </form>
                         </div>
                     </div>
                     <div class="collapse mt-4" id="collapseExample">  
@@ -449,74 +450,136 @@
                 <button id="nextBtn" class="btn btn-dark register-btn text-white" data-bs-target="#carouselExample" data-bs-slide="next">Selanjutnya</button>
                 <button id="submitBtn" class="btn register-btn text-white" style="display: none;" type="submit" form="registerForm">Submit</button>
             </div>
+            </form>
+
 
         </div>
 
     </div>
 </div>
 
-<script>
-    // SnK focus
-    var collapseExample = document.getElementById('collapseExample');
-    collapseExample.addEventListener('shown.bs.collapse', function() {
-        collapseExample.scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-    // SnK focus
-
-    const carousel = document.querySelector('#carouselExample');
-    const prevBtn = document.querySelector('#prevBtn');
-    const nextBtn = document.querySelector('#nextBtn');
-    const submitBtn = document.querySelector('#submitBtn');
-    const buttons = document.querySelectorAll('.step-button-group .btn');
-
-    carousel.addEventListener('slid.bs.carousel', function(event) {
-        const activeIndex = event.to;
-
-        buttons.forEach((btn, index) => {
-            btn.classList.toggle('active', index === activeIndex);
-        });
-
-        if (activeIndex === 0) {
-            prevBtn.style.display = 'none';
-            nextBtn.style.display = 'block';
-            submitBtn.style.display = 'none';
-        } else if (activeIndex === buttons.length - 2) {
-            prevBtn.style.display = 'block';
-            nextBtn.style.display = 'block';
-            submitBtn.style.display = 'none';
-        } else if (activeIndex === buttons.length - 1) {
-            prevBtn.style.display = 'block';
-            nextBtn.style.display = 'none';
-            submitBtn.style.display = 'block';
-        } else {
-            prevBtn.style.display = 'block';
-            nextBtn.style.display = 'block';
-            submitBtn.style.display = 'none';
-        }
-    });
-
-    prevBtn.addEventListener('click', () => {
-        carousel.querySelector('.carousel-control-prev').click();
-    });
-
-    nextBtn.addEventListener('click', () => {
-        carousel.querySelector('.carousel-control-next').click();
-    });
-
-    // Function to copy text to clipboard
-    function copyToClipboard(text) {
-        navigator.clipboard.writeText(text)
-            .then(() => {
-                console.log('Text copied to clipboard');
-                alert('Nomor berhasil disimpan di clipboard');
-            })
-            .catch(err => {
-                console.error('Unable to copy text to clipboard', err);
-                alert('Gagal menyimpan nomor di clipboard');
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // SnK focus
+        var collapseExample = document.getElementById('collapseExample');
+        collapseExample.addEventListener('shown.bs.collapse', function() {
+            collapseExample.scrollIntoView({
+                behavior: 'smooth'
             });
-    }
-</script>
+        });
+
+        const carousel = document.querySelector('#carouselExample');
+        const prevBtn = document.querySelector('#prevBtn');
+        const nextBtn = document.querySelector('#nextBtn');
+        const submitBtn = document.querySelector('#submitBtn');
+        const buttons = document.querySelectorAll('.step-button-group .btn');
+
+        carousel.addEventListener('slid.bs.carousel', function(event) {
+            const activeIndex = event.to;
+
+            buttons.forEach((btn, index) => {
+                btn.classList.toggle('active', index === activeIndex);
+            });
+
+            if (activeIndex === 0) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            } else if (activeIndex === buttons.length - 2) {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            } else if (activeIndex === buttons.length - 1) {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            } else {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carousel.querySelector('.carousel-control-prev').click();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            carousel.querySelector('.carousel-control-next').click();
+        });
+
+        // Function to copy text to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    console.log('Text copied to clipboard');
+                    alert('Nomor berhasil disimpan di clipboard');
+                })
+                .catch(err => {
+                    console.error('Unable to copy text to clipboard', err);
+                    alert('Gagal menyimpan nomor di clipboard');
+                });
+        }
+
+        // // jQuery for form validation
+        // $(document).ready(function() {
+        //     $('#myForm').on('submit', function(event) {
+        //         let valid = true;
+
+        //         // Check for Status Mahasiswa
+        //         if (!$('input[name="status_mahasiswa"]').is(':checked')) {
+        //             event.preventDefault(); // Prevent form submission
+        //             alert('Silakan pilih Status Mahasiswa!');
+        //             valid = false;
+        //         }
+
+        //         // Check for Kelas
+        //         if (!$('input[name="kelas"]').is(':checked')) {
+        //             event.preventDefault(); // Prevent form submission
+        //             alert('Silakan pilih Kelas!');
+        //             valid = false;
+        //         }
+
+        //         // Check for Paket Bundle
+        //         if (!$('input[name="paket_bundle"]').is(':checked')) {
+        //             event.preventDefault(); // Prevent form submission
+        //             alert('Silakan pilih Paket Bundle!');
+        //             valid = false;
+        //         }
+
+        //         // Check for Size Jaket
+        //         if (!$('input[name="size_jaket"]').is(':checked')) {
+        //             event.preventDefault(); // Prevent form submission
+        //             alert('Silakan pilih Size Jaket!');
+        //             valid = false;
+        //         }
+
+        //         // Check for Desain Lanyard
+        //         if (!$('input[name="desain_lanyard"]').is(':checked')) {
+        //             event.preventDefault(); // Prevent form submission
+        //             alert('Silakan pilih Desain Lanyard!');
+        //             valid = false;
+        //         }
+
+        //         // Check for Metode Pembayaran
+        //         if (!$('input[name="metode_pembayaran"]').is(':checked')) {
+        //             event.preventDefault(); // Prevent form submission
+        //             alert('Silakan pilih Metode Pembayaran!');
+        //             valid = false;
+        //         }
+
+        //         // Check for Pembayaran
+        //         if (!$('input[name="pembayaran"]').is(':checked')) {
+        //             event.preventDefault(); // Prevent form submission
+        //             alert('Silakan pilih Pembayaran!');
+        //             valid = false;
+        //         }
+
+        //         if (!valid) {
+        //             return false;
+        //         }
+        //     });
+        // });
+    </script>
 
 <?= $this->endSection() ?>

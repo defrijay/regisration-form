@@ -23,7 +23,7 @@ class Merch extends Model
     //     'kelas' => 'required|in_list[PILKOM A,PILKOM B,ILKOM C1,ILKOM C2]',
     //     'nama_lengkap' => 'required|max_length[255]',
     //     'nim' => 'required|max_length[20]',
-    //     'produk_satuan' => 'required|in_list[Jaket,Lanyard,Nametag,Mau Beli Bundle]',
+    //     'produk_satuan' => 'required',
     //     'paket_bundle' => 'required|in_list[Ternary Bundle (Jaket + Lanyard + Nametag),Binary Bundle (Jaket + Lanyard),Mau Beli Satuan]',
     //     'size_jaket' => 'required|in_list[S,M,L,XL,2XL,3XL,-]',
     //     'desain_lanyard' => 'required|in_list[First Edition,Arunikarsa Edition,-]',
@@ -31,7 +31,7 @@ class Merch extends Model
     //     'catatan' => 'max_length[255]',
     //     'metode_pembayaran' => 'required|in_list[Transfer,COD,ShopeePay,Gopay]',
     //     'pembayaran' => 'required|in_list[Lunas,Cicilan]',
-    //     'bukti_pembayaran' => 'required|is_image[bukti_pembayaran]|max_size[bukti_pembayaran,2048]',
+    //     // 'bukti_pembayaran' => 'required|max_size[bukti_pembayaran,8192]',
     // ];
 
     // protected $validationMessages = [
@@ -61,7 +61,7 @@ class Merch extends Model
     //         'max_length' => 'NIM cannot exceed 20 characters.'
     //     ],
     //     'produk_satuan' => [
-    //         'required' => 'Produk Satuan is required.'
+    //         'required' => 'At least one Produk Satuan must be selected.',
     //     ],
     //     'paket_bundle' => [
     //         'required' => 'Paket Bundle is required.',
@@ -90,12 +90,13 @@ class Merch extends Model
     //         'required' => 'Pembayaran is required.',
     //         'in_list' => 'Pembayaran must be one of: Lunas, Cicilan.'
     //     ],
-    //     'bukti_pembayaran' => [
-    //         'required' => 'Bukti Pembayaran is required.',
-    //         'is_image' => 'Bukti Pembayaran must be an image file.',
-    //         'max_size' => 'Bukti Pembayaran cannot exceed 2MB.'
-    //     ],
+    //     // 'bukti_pembayaran' => [
+    //     //     'required' => 'Bukti Pembayaran must be an image file.',
+    //     //     'max_size' => 'Janga besar.',
+    //     // ],
     // ];
+
+    
 
     public function getPaginatedData($limit, $offset)
     {
@@ -106,5 +107,7 @@ class Merch extends Model
     {
         return $this->countAllResults();
     }
+
+   
 }
 

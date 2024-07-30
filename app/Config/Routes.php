@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 // $routes->get('/', 'MerchController::index');
 $routes->get('/admin', 'MerchController::index');
+// $routes->get('/success', 'Home::success');
 
 // CRUD Merchandise
 $routes->get('merch', 'MerchController::index');

@@ -1,4 +1,4 @@
-<?= $this->extend('layout/masterAdmin') ?>
+<?= $this->extend('layout/masterAdminMerchandise') ?>
 
 <?= $this->section('content') ?>
 
@@ -114,10 +114,13 @@
 
             <div class="container-fluid mt-5">
             <h2 class="fw-bold text-center text-white mb-3">Data Pemesanan KEMAKOM Merchanidse</h2>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Cari data yang kamu inginkan..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-success fw-bold" type="button" id="button-addon2">Cari Data  <i class="bi bi-search fw-bold"></i></button>
-            </div>
+            <form method="get" action="<?= base_url('merch') ?>">
+                <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Cari data nama pembeli yang kamu inginkan..." aria-label="Recipient's username" aria-describedby="button-addon2" name="search">
+                        <button class="btn btn-success fw-bold" type="submit" id="button-addon2">Cari Data <i class="bi bi-search fw-bold"></i></button>
+                        
+                </div>
+            </form>
             <div class="d-flex justify-content-center">
             <div class="table-responsive">
                 <table class="table table-striped table-hover text-center align-middle bg-white p-3 rounded-lg shadow-sm">
@@ -144,10 +147,10 @@
                 </thead>
                 <tbody class="table-group-divider">
                     <?php if(count($merchs) > 0): ?>
-                        <?php $no = 1; foreach ($merchs as $merch) :?>
+                        <?php foreach ($merchs as $merch) :?>
                         <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= $merch['nama_lengkap']?></td>
+                            <td><strong><?= $nomor++ ?></strong></td>
+                            <td><strong><?= $merch['nama_lengkap']?></strong></td>
                             <td><?= $merch['email']?></td>
                             <td><?= $merch['nomor_telepon']?></td>
                             <td><?= $merch['status_mahasiswa']?></td>
@@ -375,10 +378,11 @@
                 </tbody>
                 </table>
 
-                <div class="container mt-3">
-                    <?= $pager->makeLinks($currentPage, $limit, $totalRows) ?>
-                    <?= $pager->links('merchs', 'bootstrap_pagination'); ?>
-                </div>
+
+                    
+                <?= $pager->links('merchs', 'bootstrap_pagination'); ?>
+                <small class="mb-5 text-white">*apabila pagination tidak tampil semua setelah pencarian, klik cari data lagi dengan data kosong agar tampil semua</small>
+
             </div>
             </div>
         </div>

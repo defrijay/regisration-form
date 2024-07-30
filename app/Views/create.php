@@ -8,14 +8,41 @@
     <h1>Create Merch</h1>
     
     <?php if(session()->getFlashdata('success')): ?>
-        <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('success') ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     <?php elseif(session()->getFlashdata('error')): ?>
-        <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('error') ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     <?php endif; ?>
-    
-    <?= \Config\Services::validation()->listErrors() ?>
+
+    <!-- Tampilkan pesan kesalahan validasi -->
+    <?php if(session()->get('errors')): ?>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <?php foreach (session()->get('errors') as $error): ?>
+                    <li><?= esc($error) ?></li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
+    <?php $validation = \Config\Services::validation(); ?>
     
     <form action="<?= base_url('merch/store') ?>" method="post" enctype="multipart/form-data">
+        <!-- Error -->
+        <?php if($validation->getError('name')) {?>
+            <div class='alert alert-danger mt-2'>
+              <?= $error = $validation->getError('name'); ?>
+            </div>
+        <?php }?>
         <label>Email:</label>
         <input type="text" name="email" value="<?= old('email') ?>"><br>
         
@@ -80,7 +107,7 @@
         <input type="radio" name="pembayaran" value="Cicilan" <?= old('pembayaran') == 'Cicilan' ? 'checked' : '' ?>> Cicilan<br>
         
         <label>Bukti Pembayaran:</label>
-        <input type="file" name="bukti_pembayaran"><br>
+        <input type="file" name="bukti_pembayaran" required><br>
         
         <button type="submit">Submit</button>
     </form>
